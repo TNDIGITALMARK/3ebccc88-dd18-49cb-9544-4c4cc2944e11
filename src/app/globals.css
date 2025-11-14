@@ -1,97 +1,112 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+============================================
+POKEMINT DESIGN SYSTEM
+Pokemon NFT Trading Platform - Dark Theme
+Based on design reference: ai-generated-preview.png
+============================================
 */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* FONT SYSTEM */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* POKEMON DARK THEME COLORS (from design reference) */
+  /* Background: Dark charcoal #2B2B2B (HSL: 0 0% 17%) */
+  --background: 0 0% 17%;
+  --foreground: 0 0% 100%;
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  /* Cards: Slightly lighter dark #1F1F1F (HSL: 0 0% 12%) */
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 100%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  /* Popovers: Dark background */
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Primary: Golden/Yellow accent #F4B93E (HSL: 40 89% 60%) */
+  --primary: 40 89% 60%;
+  --primary-foreground: 0 0% 0%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  /* Secondary: Cyan blue #3B9DD9 (HSL: 203 68% 54%) */
+  --secondary: 203 68% 54%;
+  --secondary-foreground: 0 0% 100%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Muted: Medium gray for secondary text #9CA3AF (HSL: 220 9% 65%) */
+  --muted: 0 0% 25%;
+  --muted-foreground: 220 9% 65%;
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Accent: Electric blue */
+  --accent: 203 68% 54%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Destructive: Pokemon red #EE1515 (HSL: 0 88% 51%) */
+  --destructive: 0 88% 51%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Borders: Subtle dark border */
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --ring: 40 89% 60%;
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border radius for Pokemon aesthetic */
+  --radius: 0.5rem;
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  /* Sidebar: Dark theme */
+  --sidebar-background: 0 0% 12%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 40 89% 60%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 0 0% 20%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 0 0% 25%;
+  --sidebar-ring: 40 89% 60%;
+
+  /* POKEMON BRAND COLORS */
+  --pokemon-yellow: 40 89% 60%; /* #F4B93E */
+  --pokemon-blue: 203 68% 54%; /* #3B9DD9 */
+  --pokemon-red: 0 88% 51%; /* #EE1515 */
+  --pokemon-green: 142 71% 45%; /* #10B981 */
+
+  /* CARD BORDER COLORS (from design) */
+  --card-border-gold: 40 89% 60%;
+  --card-border-cyan: 180 75% 55%;
+  --card-border-red: 0 75% 55%;
+  --card-border-purple: 270 60% 60%;
 }
 
+/* Dark theme is default for PokeMint */
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --sidebar-background: 240 5.9% 10%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 224.3 76.3% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --background: 0 0% 17%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 40 89% 60%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 203 68% 54%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 220 9% 65%;
+  --accent: 203 68% 54%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 88% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --ring: 40 89% 60%;
+  --sidebar-background: 0 0% 12%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 40 89% 60%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 0 0% 20%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 0 0% 25%;
+  --sidebar-ring: 40 89% 60%;
 }
 
 @theme {
@@ -168,36 +183,169 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* BASE STYLES */
+* {
+  border-color: hsl(var(--border));
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
   font-feature-settings: "rlig" 1, "calt" 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  margin: 0;
+  padding: 0;
 }
 
-/* Minimal, clean typography */
+/* TYPOGRAPHY SYSTEM (from design reference) */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-weight: 700;
   letter-spacing: -0.025em;
   color: hsl(var(--foreground));
+  margin-top: 0;
+  line-height: 1.2;
 }
 
-/* Clean button styles */
+h1 {
+  font-size: 3rem; /* 48px - Hero headings */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.25rem; /* 36px - Section headings */
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.875rem; /* 30px - Subsection headings */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem; /* 24px - Card headings */
+  font-weight: 600;
+  margin-bottom: 0.875rem;
+}
+
+h5 {
+  font-size: 1.25rem; /* 20px - Small headings */
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h6 {
+  font-size: 1.125rem; /* 18px - Smallest headings */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--secondary));
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+/* BUTTON DEFAULTS */
 button {
-  font-weight: 500;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  cursor: pointer;
 }
 
-/* Subtle shadows for depth */
+/* FORM ELEMENT DEFAULTS */
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--input));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsla(var(--ring) / 0.1);
+}
+
+/* POKEMON-THEMED SHADOWS (from design) */
 .shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.2);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0.3);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 0.4);
+}
+
+.shadow-lg {
+  box-shadow: 0 16px 32px 0 rgb(0 0 0 / 0.5);
+}
+
+.shadow-glow-gold {
+  box-shadow: 0 0 20px 5px hsla(var(--pokemon-yellow) / 0.4);
+}
+
+.shadow-glow-blue {
+  box-shadow: 0 0 20px 5px hsla(var(--pokemon-blue) / 0.4);
+}
+
+.shadow-glow-red {
+  box-shadow: 0 0 20px 5px hsla(var(--pokemon-red) / 0.4);
+}
+
+/* CARD ANIMATIONS */
+@keyframes card-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes card-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px hsla(var(--pokemon-yellow) / 0.3)); }
+  50% { filter: drop-shadow(0 0 20px hsla(var(--pokemon-yellow) / 0.6)); }
+}
+
+.card-float {
+  animation: card-float 3s ease-in-out infinite;
+}
+
+.card-glow {
+  animation: card-glow 2s ease-in-out infinite;
 }
